@@ -37,23 +37,57 @@ def test_search_main_page(web_browser):
     with allure.step('Проверка на кликабельность'):
         check.is_true(page.headers_search.is_clickable())
 
+    with allure.step('Проверка плейсхолдера'):
+        check.equal(page.headers_search.get_attribute('placeholder'), 'Поиск...')
+
     with allure.step('Проверка на ввод текста и его отображение'):
-        input_test = ['Biora','891','Пингвинариум']
+        input_test = ['Biora', '891', 'Пингвинариум']
 
         for i in input_test:
             page.headers_search.send_keys(i)
             time.sleep(5)
             check.not_equal(page.result_search.get_text().find(i), -1)
 
+
 def test_feedback(web_browser):
-    """Этот тест проверяет работоспособность строки кнопки обратная связь """
+    """Этот тест проверяет работоспособность кнопки обратная связь """
 
     page = MainPage(web_browser)
 
-    with allure.step('Проверка на отображение'):
+    feedback = [page.inp_feedback_name, page.inp_feedback_phone, page.inp_feedback_email,
+                page.inp_feedback_question, page.btn_feedback_send]
+
+    with allure.step('Проверка на отображение кнопки Обратная связь'):
         check.is_true(page.btn_headers_feedback.is_visible())
 
-    with allure.step('Проверка на кликабельность'):
+    with allure.step('Проверка на кликабельность кнопки Обратная связь'):
         check.is_true(page.btn_headers_feedback.is_clickable())
 
-    with allure.step('Проверка'):
+    page.btn_headers_feedback.click()
+
+    time.sleep(5)
+
+    for elements in feedback:
+        with allure.step('Проверка на отображение полей для заполнения обратной связи'):
+            check.is_true(elements.is_visible())
+
+        with allure.step('Проверка на кликабельность полей для заполнения обратной связи'):
+            check.is_true(elements.is_clickable())
+
+    with allure.step('Проверка плейсхолдера'):
+        check.equal(page.inp_feedback_name.get_attribute('placeholder'), 'Ваше Имя?')
+        check.equal(page.inp_feedback_phone.get_attribute('placeholder'), '+375 29 123-45-67')
+        check.equal(page.inp_feedback_email.get_attribute('placeholder'), 'Ваш Email адрес?')
+
+    with allure.step('Проверка ввода текста и его отображение'):
+        test_input = ['Пингвин', '+375 29 888 88 88', 'penguin@pen.by', 'Вы пингвины?']
+
+        page.inp_feedback_name.send_keys(test_input[0])
+        page.inp_feedback_phone.send_keys(test_input[1])
+        page.inp_feedback_email.send_keys(test_input[2])
+        page.inp_feedback_question.send_keys(test_input[3])
+
+        check.equal(page.inp_feedback_name.get_text(), test_input[0])
+        check.equal(page.inp_feedback_phone.get_text(), test_input[1])
+        check.equal(page.inp_feedback_email.get_text(), test_input[2])
+        check.equal(page.inp_feedback_question.get_text(), test_input[3])
