@@ -1,38 +1,59 @@
 import time
-
+import allure
 import pytest_check as check
 from Portfolio_S_Borozna.locators.locators_main_page import MainPage
 
 
-def test_search(web_browser):
-    """Этот тест проверяет поиск"""
+@allure.story('Тест для проверки главной страницы')
+@allure.feature('Тест для проверки работоспособности хедера')
+def test_main_page(web_browser):
+    """Этот тест проверяет работоспособность хедера"""
 
     page = MainPage(web_browser)
 
-    elements_search = [ page.hed_search, page.btn_search]
+    btn_headers = [page.btn_headers_mc, page.btn_headers_catalog, page.btn_headers_brends,
+                   page.btn_headers_to_help, page.btn_headers_about_company, page.btn_headers_contact,
+                   page.btn_headers_basket, page.btn_headers_profile]
+
+    for elements in btn_headers:
+        with allure.step('Проверка на отображение'):
+            check.is_true(elements.is_visible())
+
+        with allure.step('Проверка на кликабельность'):
+            check.is_true(elements.is_clickable())
+
+        #with allure.step(f'Сверка текста {elements}')
+        #check.equal(elements.get_text(),)
 
 
-    for el in elements_search:
-         check.is_true(el.is_visible())
-         check.is_true(el.is_clickable())
+def test_search_main_page(web_browser):
+    """Этот тест проверяет работоспособность строки поиска на главной странице """
 
-    check.equal(page.hed_search.get_attribute('placeholder'),"Введите домены")
+    page = MainPage(web_browser)
 
-    text_inp ='m/+\*)(^%!#$^&'
-    page.hed_search.send_keys(text_inp)
-    page.btn_search.click()
-    check.equal(page.txt1.get_text(), 'Имя домена должно содержать от 2 до 63 символов')
-    check.equal(page.txt2.get_text(), 'Символы "/", "+", "\", "*", ")", "(", "^", "%", "!", "#", "$", "&" удалены, '
-                           'т.к. являются недопустимыми.')
-    page.go_back()
+    with allure.step('Проверка на отображение'):
+        check.is_true(page.headers_search.is_visible())
 
+    with allure.step('Проверка на кликабельность'):
+        check.is_true(page.headers_search.is_clickable())
 
-    inp = ['tryam','vivat','my']
-    for i in inp:
-        dom = i + page.var_dom.get_text()
+    with allure.step('Проверка на ввод текста и его отображение'):
+        input_test = ['Biora','891','Пингвинариум']
 
-        page.hed_search.send_keys(i)
-        page.btn_search.click()
-        time.sleep(5)
-        check.not_equal(page.rez.get_text().find(dom),-1)
-        page.go_back()
+        for i in input_test:
+            page.headers_search.send_keys(i)
+            time.sleep(5)
+            check.not_equal(page.result_search.get_text().find(i), -1)
+
+def test_feedback(web_browser):
+    """Этот тест проверяет работоспособность строки кнопки обратная связь """
+
+    page = MainPage(web_browser)
+
+    with allure.step('Проверка на отображение'):
+        check.is_true(page.btn_headers_feedback.is_visible())
+
+    with allure.step('Проверка на кликабельность'):
+        check.is_true(page.btn_headers_feedback.is_clickable())
+
+    with allure.step('Проверка'):
