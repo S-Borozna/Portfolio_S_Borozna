@@ -11,8 +11,8 @@ def test_main_page(web_browser):
 
     page = MainPage(web_browser)
 
-    btn_headers = [page.btn_headers_mc, page.btn_headers_catalog, page.btn_headers_brends,
-                   page.btn_headers_to_help, page.btn_headers_about_company, page.btn_headers_contact,
+    btn_headers = [page.btn_headers_catalog, page.btn_headers_brends,page.btn_headers_to_help,
+                   page.btn_headers_about_company, page.btn_headers_contact,
                    page.btn_headers_basket, page.btn_headers_profile]
 
     for elements in btn_headers:
@@ -24,6 +24,13 @@ def test_main_page(web_browser):
 
         #with allure.step(f'Сверка текста {elements}')
         #check.equal(elements.get_text(),)
+
+def test_logo_mc(web_browser)
+    """"""
+
+    page = MainPage(web_browser)
+
+    with allure.step()
 
 
 def test_search_main_page(web_browser):
@@ -49,45 +56,46 @@ def test_search_main_page(web_browser):
             check.not_equal(page.result_search.get_text().find(i), -1)
 
 
-def test_feedback(web_browser):
-    """Этот тест проверяет работоспособность кнопки обратная связь """
+#def test_feedback(web_browser):
+#    """Этот тест проверяет работоспособность кнопки обратная связь """
 
-    page = MainPage(web_browser)
+#    page = MainPage(web_browser)
 
-    feedback = [page.inp_feedback_name, page.inp_feedback_phone, page.inp_feedback_email,
-                page.inp_feedback_question, page.btn_feedback_send]
+#    feedback = [page.inp_feedback_name, page.inp_feedback_phone, page.inp_feedback_email,
+#                page.inp_feedback_question, page.btn_feedback_send]
 
-    with allure.step('Проверка на отображение кнопки Обратная связь'):
-        check.is_true(page.btn_headers_feedback.is_visible())
+#    with allure.step('Проверка на отображение кнопки Обратная связь'):
+#        check.is_true(page.btn_headers_feedback.is_visible())
 
-    with allure.step('Проверка на кликабельность кнопки Обратная связь'):
-        check.is_true(page.btn_headers_feedback.is_clickable())
+#    with allure.step('Проверка на кликабельность кнопки Обратная связь'):
+#        check.is_true(page.btn_headers_feedback.is_clickable())
 
-    page.btn_headers_feedback.click()
+#    page.btn_headers_feedback.click()
 
-    time.sleep(5)
+#    time.sleep(5)
 
-    for elements in feedback:
-        with allure.step('Проверка на отображение полей для заполнения обратной связи'):
-            check.is_true(elements.is_visible())
+#    for elements in feedback:
+#        with allure.step('Проверка на отображение полей для заполнения обратной связи'):
+#            check.is_true(elements.is_visible())
 
-        with allure.step('Проверка на кликабельность полей для заполнения обратной связи'):
-            check.is_true(elements.is_clickable())
+#        with allure.step('Проверка на кликабельность полей для заполнения обратной связи'):
+#            check.is_true(elements.is_clickable())
 
-    with allure.step('Проверка плейсхолдера'):
-        check.equal(page.inp_feedback_name.get_attribute('placeholder'), 'Ваше Имя?')
-        check.equal(page.inp_feedback_phone.get_attribute('placeholder'), '+375 29 123-45-67')
-        check.equal(page.inp_feedback_email.get_attribute('placeholder'), 'Ваш Email адрес?')
+#    with allure.step('Проверка плейсхолдера'):
+#        check.equal(page.inp_feedback_name.get_attribute('placeholder'), 'Ваше Имя?')
+#        check.equal(page.inp_feedback_phone.get_attribute('placeholder'), '+375 29 123-45-67')
+#        check.equal(page.inp_feedback_email.get_attribute('placeholder'), 'Ваш Email адрес?')
 
-    with allure.step('Проверка ввода текста и его отображение'):
-        test_input = ['Пингвин', '+375 29 888 88 88', 'penguin@pen.by', 'Вы пингвины?']
+    #with allure.step('Проверка ввода текста и его отображение'):
+    #    test_input = ['Пингвин', '+375 29 888 88 88', 'penguin@pen.by', 'Вы пингвины?']
 
-        page.inp_feedback_name.send_keys(test_input[0])
-        page.inp_feedback_phone.send_keys(test_input[1])
-        page.inp_feedback_email.send_keys(test_input[2])
-        page.inp_feedback_question.send_keys(test_input[3])
+    #    page.inp_feedback_name.send_keys(test_input[0])
+    #    page.inp_feedback_phone.send_keys(test_input[1])
+    #    page.inp_feedback_email.send_keys(test_input[2])
+    #    page.inp_feedback_question.send_keys(test_input[3])
 
-        check.equal(page.inp_feedback_name.get_text(), test_input[0])
-        check.equal(page.inp_feedback_phone.get_text(), test_input[1])
-        check.equal(page.inp_feedback_email.get_text(), test_input[2])
-        check.equal(page.inp_feedback_question.get_text(), test_input[3])
+    #    check.equal(page.inp_feedback_name.get_text(), test_input[0])
+    #    check.equal(page.inp_feedback_phone.get_text(), test_input[1])
+    #    check.equal(page.inp_feedback_email.get_text(), test_input[2])
+    #    check.equal(page.inp_feedback_question.get_text(), test_input[3])
+

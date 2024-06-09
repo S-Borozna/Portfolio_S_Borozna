@@ -2,6 +2,7 @@ import os
 
 from Portfolio_S_Borozna.page.base_page import WebPage
 from Portfolio_S_Borozna.page.elements import WebElement
+from Portfolio_S_Borozna.page.elements import ManyWebElements
 
 
 class MainPage(WebPage):
@@ -46,10 +47,13 @@ class MainPage(WebPage):
     btn_footer_vacancies = WebElement(xpath='(//*[@data-elementor-type="footer"]/*[2]//span)[34]')
     btn_footer_brands = WebElement(xpath='(//*[@data-elementor-type="footer"]/*[2]//span)[35]')
     btn_footer_mc = WebElement(xpath='(//*[@alt="worldofcolor-white-slogan-logo"])[2]')
-    result_search = WebElement(xpath="(//*[contains(concat(' ', normalize-space(@class), ' '), "
-                                     "' asp_results_top ')])[3]")
+    result_search = WebElement(xpath=' (//div[@class="asp_results_top"])[3]')
+                     #(xpath="(//*[contains(concat(' ', normalize-space(@class), ' '), "
+                     #               "' asp_results_top ')])[3]"))
     inp_feedback_name = WebElement(xpath='(//*[@aria-modal="true"]//*[@aria-invalid="false"])[1]')
     inp_feedback_phone = WebElement(xpath='(//*[@aria-modal="true"]//*[@aria-invalid="false"])[2]')
     inp_feedback_email = WebElement(xpath='(//*[@aria-modal="true"]//*[@aria-required="false"])[1]')
     inp_feedback_question = WebElement(xpath='(//*[@aria-modal="true"]//*[@aria-required="false"])[2]')
     btn_feedback_send = WebElement(xpath='//*[@aria-modal="true"]//button')
+    mal_plitki = WebElement(xpath="(//*[contains(concat(' ', normalize-space(@class), ' '), ' category-item ')])[2]")
+    plitki = ManyWebElements(xpath='')
