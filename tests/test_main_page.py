@@ -1,7 +1,7 @@
 import time
 import allure
 import pytest_check as check
-from Portfolio_S_Borozna.locators.locators_main_page import MainPage
+from portfolio_s_borozna.locators.locators_main_page import MainPage
 
 
 @allure.story('Тест для проверки главной страницы')
@@ -11,26 +11,25 @@ def test_main_page(web_browser):
 
     page = MainPage(web_browser)
 
-    btn_headers = [page.btn_headers_catalog, page.btn_headers_brends,page.btn_headers_to_help,
-                   page.btn_headers_about_company, page.btn_headers_contact,
-                   page.btn_headers_basket, page.btn_headers_profile]
+    btn_headers = [(page.btn_headers_catalog, 'Каталог товаров','https://lakikraski.by/#'), (page.btn_headers_brends,
+                    'Бренды','https://lakikraski.by/brands/'),(page.btn_headers_to_help, 'В помощь',
+                    'https://lakikraski.by/#'),(page.btn_headers_about_company, 'О компании','https://lakikraski.by/#'),
+                   (page.btn_headers_contact, 'Контакты', 'https://lakikraski.by/kontakty-mir-cveta/'),
+                   (page.btn_headers_basket,'','https://lakikraski.by/#'), (page.btn_headers_profile,'',
+                    'https://lakikraski.by/my-account/'),(page.btn_headers_mc, '', 'https://lakikraski.by/')]
 
-    for elements in btn_headers:
+    for elements,text_elements,href_elements in btn_headers:
         with allure.step('Проверка на отображение'):
             check.is_true(elements.is_visible())
 
         with allure.step('Проверка на кликабельность'):
             check.is_true(elements.is_clickable())
 
-        #with allure.step(f'Сверка текста {elements}')
-        #check.equal(elements.get_text(),)
+        with allure.step(f'Сверка текста {elements}'):
+            check.equal(elements.get_text(),text_elements)
 
-def test_logo_mc(web_browser)
-    """"""
-
-    page = MainPage(web_browser)
-
-    with allure.step()
+        with allure.step(f'Сверка href {elements}'):
+            check.equal(elements.get_attribute('href'), href_elements)
 
 
 def test_search_main_page(web_browser):

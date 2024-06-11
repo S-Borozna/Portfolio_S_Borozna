@@ -1,8 +1,8 @@
 import os
 
-from Portfolio_S_Borozna.page.base_page import WebPage
-from Portfolio_S_Borozna.page.elements import WebElement
-from Portfolio_S_Borozna.page.elements import ManyWebElements
+from portfolio_s_borozna.page.base_page import WebPage
+from portfolio_s_borozna.page.elements import WebElement
+from portfolio_s_borozna.page.elements import ManyWebElements
 
 
 class MainPage(WebPage):
@@ -13,7 +13,7 @@ class MainPage(WebPage):
 
         super().__init__(web_driver, url)
 
-    btn_headers_mc = WebElement(xpath='(//*[@alt="Мир Цвета логотип фотография изображение картинка"])[1]')
+    btn_headers_mc = WebElement(xpath='(//*[@data-widget_type="image.default"])[1]//a')
     headers_search = WebElement(xpath='(//*[@aria-label="Search input"])[1]')
     btn_headers_feedback = WebElement(xpath='(//*[@data-widget_type="button.default"])[1]//a')
     btn_headers_catalog = WebElement(xpath='((//*[@data-widget_type="ekit-vertical-menu.default"])[1]//a)[1]')
@@ -22,8 +22,9 @@ class MainPage(WebPage):
     btn_headers_about_company = WebElement(xpath='((//*[@data-widget_type="nav-menu.default"])[1]//'
                                                  '*[@aria-expanded="false"])[7]')
     btn_headers_contact = WebElement(xpath='((//*[@data-widget_type="nav-menu.default"])[1]//a)[23]')
-    btn_headers_basket = WebElement(xpath='(//*[@data-widget_type="woocommerce-menu-cart.default"])[1]//i')
-    btn_headers_profile = WebElement(xpath='(//*[@data-widget_type="icon.default"])[1]//*[@aria-hidden="true"]')
+    btn_headers_basket = WebElement(xpath='(//*[@data-widget_type="woocommerce-menu-cart.default"])[1]//*'
+                                          '[@aria-expanded="false"]')
+    btn_headers_profile = WebElement(xpath='(//*[@title="Мой аккаунт"])[1]')
     btn_footer_arch_paints = WebElement(xpath='(//*[@data-elementor-type="footer"]/*[2]//span)[8]')
     btn_footer_ind_coatings = WebElement(xpath='(//*[@data-elementor-type="footer"]/*[2]//span)[9]')
     btn_footer_decor = WebElement(xpath='(//*[@data-elementor-type="footer"]/*[2]//span)[10]')
@@ -48,12 +49,9 @@ class MainPage(WebPage):
     btn_footer_brands = WebElement(xpath='(//*[@data-elementor-type="footer"]/*[2]//span)[35]')
     btn_footer_mc = WebElement(xpath='(//*[@alt="worldofcolor-white-slogan-logo"])[2]')
     result_search = WebElement(xpath=' (//div[@class="asp_results_top"])[3]')
-                     #(xpath="(//*[contains(concat(' ', normalize-space(@class), ' '), "
-                     #               "' asp_results_top ')])[3]"))
     inp_feedback_name = WebElement(xpath='(//*[@aria-modal="true"]//*[@aria-invalid="false"])[1]')
     inp_feedback_phone = WebElement(xpath='(//*[@aria-modal="true"]//*[@aria-invalid="false"])[2]')
     inp_feedback_email = WebElement(xpath='(//*[@aria-modal="true"]//*[@aria-required="false"])[1]')
     inp_feedback_question = WebElement(xpath='(//*[@aria-modal="true"]//*[@aria-required="false"])[2]')
     btn_feedback_send = WebElement(xpath='//*[@aria-modal="true"]//button')
-    mal_plitki = WebElement(xpath="(//*[contains(concat(' ', normalize-space(@class), ' '), ' category-item ')])[2]")
-    plitki = ManyWebElements(xpath='')
+
