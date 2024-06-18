@@ -1,2 +1,3 @@
 #!/bin/bash
-pytest -v -s \Users\Светлана\PycharmProjects\MY\Portfolio_S_Borozna\tests
+
+pytest -v -s \Users\Светлана\PycharmProjects\MY\portfolio_s_borozna\tests
