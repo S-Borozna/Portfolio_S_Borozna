@@ -34,7 +34,7 @@ def test_main_page_header(web_browser):
 @allure.story('Тест для проверки главной страницы')
 @allure.feature('Тест для проверки выпадающего меню хедера')
 def test_v_menu(web_browser):
-    """Этот тест проверяет отображение выпадающего меню хедера """
+    """Этот тест проверяет выпадающее меню хедера """
 
     page = MainPage(web_browser)
 
@@ -45,9 +45,6 @@ def test_v_menu(web_browser):
 
     for btn, v_menu, quantity in btn_headers:
         btn.click()
-
-        # with allure.step('Проверка на отображение'):
-        #     check.is_true(v_menu.is_visible())
 
         with allure.step('Проверка на верное количество вкладок в выпадающем меню'):
             x = v_menu.count()
@@ -115,12 +112,17 @@ def test_feedback(web_browser):
     with allure.step('Проверка ввода текста и его отображение'):
         test_input = ['Пингвин', '+375298888888', 'penguin@pen.by', 'Вы пингвины?']
 
-        page.inp_feedback_name.send_keys(test_input[0])
-        page.inp_feedback_phone.send_keys(test_input[1])
-        page.inp_feedback_email.send_keys(test_input[2])
-        page.inp_feedback_question.send_keys(test_input[3])
 
-        # check.equal(page.inp_feedback_name.get_text(), test_input[0])
+
+        result_input = [page.inp_feedback_name.send_keys(test_input[0]),
+                        page.inp_feedback_phone.send_keys(test_input[1]),
+                        page.inp_feedback_email.send_keys(test_input[2]),
+                        page.inp_feedback_question.send_keys(test_input[3])]
+
+        for result in result_input:
+            n = 0
+            check.equal(result.get_text(), test_input[n])
+            n +=1
         # check.equal(page.inp_feedback_phone.get_text(), test_input[1])
         # check.equal(page.inp_feedback_email.get_text(), test_input[2])
         # check.equal(page.inp_feedback_question.get_text(), test_input[3])
@@ -132,12 +134,6 @@ def test_feedback(web_browser):
         check.not_equal(page.msg_feedback.get_text().find(f'{test_input[0]} Спасибо за обращение! '
                                                  f'Мы свяжемся с вами в ближайшее время.'),-1)
 
-@allure.story('Тест для проверки главной страницы')
-@allure.feature('Тест для проверки работоспособности слайдеров')
-def test_feedback(web_browser):
-    """Этот тест проверяет работоспособность слайдероа """
-
-    page = MainPage(web_browser)
 
 @allure.story('Тест для проверки главной страницы')
 @allure.feature('Тест для проверки работоспособности футера')

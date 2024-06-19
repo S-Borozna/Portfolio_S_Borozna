@@ -43,7 +43,7 @@ def test_registration(web_browser):
 
     with allure.step('Проверка ввода и отображения текста'):
         page.inp_email_registration.send_keys(inp_email_val[0])
-       # check.equal(page.inp_email_registration.get_text(),inp_email[1]) Задать вопрос Максиму
+       # check.equal(page.inp_email_registration.get_text(),inp_email_val[0])
 
     with allure.step('Проверка регистрации с невалидными значениями'):
         for inp in inp_email_neval:
@@ -59,7 +59,7 @@ def test_registration(web_browser):
 
 @allure.story('Тест для проверки страницы "Мой аккаунт"')
 @allure.feature('Тест для проверки работоспособности формы входа в аккаунт')
-def test_registration(web_browser):
+def test_login_to_account(web_browser):
     """Этот тест проверяет возможность зайти в существуюющий аккаунт"""
 
     page = MyAccountPage(web_browser)
@@ -89,3 +89,4 @@ def test_registration(web_browser):
         page.btn_come_in.click()
         check.not_equal(page.msg_successful_registration.get_text().find('Из главной страницы аккаунта вы можете'
                                                                          ' посмотреть ваши недавние заказы'), -1)
+
