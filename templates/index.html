@@ -8,21 +8,23 @@
 
     <title>S_Borozna</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/unicons.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/unicons.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.min.css">
 
     <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="css/tooplate-style.css">
+    <link rel="stylesheet" href="../static/css/tooplate-style.css">
 
   </head>
   <body>
 
     <!-- MENU -->
+
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -63,7 +65,7 @@
         <div class="container">
             <div class="row">
                 
-                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+                <div class="col-lg-6 col-md-12 col-12 d-flex align-items-center">
                     <div class="about-text">
                         <small class="small-text">Добро пожаловать <span class="mobile-block">на сайт моего портофолио!</span></small>
                         <h1 class="animated animated-text">
@@ -78,16 +80,16 @@
                         <p>Создание успешного продукта – это непростая задача. И без тестировщика она сложно осуществима.</p>
                         
                         <div class="custom-btn-group mt-4">
-                          <a href="#" class="btn mr-lg-2 custom-btn">
+                          <a href="Svetlana_Borozna_resume.pdf" download="resume.pdf" class="btn mr-lg-2 custom-btn">
                               <i class='uil uil-file-alt'></i> Скачать резюме</a>
                           <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Обратная связь</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-5 col-md-12 col-12">
+                <div class="col-lg-6">
                     <div class="about-image svg">
-                        <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="img-fluid" alt="svg image">
+                        <img src="../static/images/undraw/undraw_software_engineer_lvl5.svg" class="img-fluid" alt="svg image">
                     </div>
                 </div>
 
@@ -98,31 +100,33 @@
     <!-- PROJECTS -->
     <section class="project py-5" id="project">
         <div class="container">
-            <div class="col-md text-center">
-                <h2>Тут можно ознакомиться c примерами</h2>
-                            <h2>моих тестов</h2>
+            <div class="col-md text-center" style="margin-top: 110px; margin-bottom: 100px">
+                <h2>Примеры тестов</h2>
             </div>
 				<div class="col-md-4 brd text-center desc">
-                    <h3>UI тесты</h3>
-                    <h7>Бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бал бла бла блa</h7>
+                    <div style="margin-bottom: 20px">
+                        <h3>UI тесты</h3></div>
+                    <p>В этом разделе можно ознакомится с тестами, которые проверяют главную страницу сайта lakikraski.by.
+                        А так же проверяют страницу личного кабинета и страницу корзины.</p>
                     <div class="custom-btn-group mt-4">
-                        <a href="/run_ui" class="btn mr-lg-2 custom-btn">Запустить</a>
+                        <a href="/run_ui" class="btn mr-lg-2 custom-btn" style="vertical-align: bottom">Запустить</a>
                     </div>
 				</div>
 				<div class="col-md-4 brd text-center desc">
-                    <h3>Api тесты</h3>
-                    <h7>Бла бла</h7>
+                    <div style="margin-bottom: 20px">
+                        <h3>Api тесты</h3></div>
+                    <p>Тестирование API считается критически важным для автоматизации тестирования, потому что API —
+                        основной интерфейс логики приложения.</p>
                     <div class="custom-btn-group mt-4">
-                        <a href="http://localhost:63342/Portfolio_S_Borozna/website/oopss.html?_
-                        ijt=bcn6t6g5u55ek4ksle72gjbvqf&_ij_reload=RELOAD_ON_SAVE" class="btn mr-lg-2
-                        custom-btn">Запустить</a>
+                        <a href="/error" class="btn mr-lg-2 custom-btn" style="vertical-align: bottom">Запустить</a>
                     </div>
 				</div>
                 <div class="col-md-4 brd text-center desc">
-                    <h3>Allure отчеты</h3>
-                    <h7>Бла бла</h7>
+                    <div style="margin-bottom: 20px">
+                        <h3>Allure отчеты</h3></div>
+                    <p>Для более удобного анализа протестированной среды можно ознакомится с Allure-отчетом.</p>
                     <div class="custom-btn-group mt-4">
-                        <a href="#" class="btn mr-lg-2 custom-btn">Запустить</a>
+                        <a href="/runallure" class="btn mr-lg-2 custom-btn">Запустить</a>
                     </div>
 				</div>
             </div>
@@ -131,8 +135,12 @@
     <!-- FEATURES -->
     <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
             <div class="container">
+                <div class="col-md text-center" style="margin-top: 200px; margin-bottom: 80px">
+                <h2>Навыки и достижения</h2>
+                </div>
+
                 <div class="row row-pb-md">
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-bottom: 20px">
                         <h2>HTML 65%</h2>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped bg-dark"  style="width: 65%"
@@ -140,9 +148,9 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <h2>Postman 33%</h2>
+                        <h2>Postman 53%</h2>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped bg-dark" style="width: 33%"
+                            <div class="progress-bar progress-bar-striped bg-dark" style="width: 53%"
                             ></div>
                         </div>
                     </div>
@@ -153,7 +161,7 @@
                             ></div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-bottom: 20px">
                         <h2> TestLink 68%</h2>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped bg-dark"  style="width: 68%"
@@ -174,7 +182,7 @@
                             ></div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-bottom: 20px">
                         <h2> Git 75%</h2>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped bg-dark"  style="width: 75%"
@@ -188,44 +196,51 @@
                             ></div>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <h2> Selenium 50%</h2>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-dark"  style="width: 50%"
+                            ></div>
+                        </div>
+                    </div>
                 </div>
 
-        <div class="container" style="margin-top: 15px;">
+            <div class="container" style="margin-top: 15px;">
 
                       <div class="owl-carousel owl-theme">
                         <div class="item">
                           <div class="project-info">
-                            <img src="images/project/SQL 1.jpg" class="img-fluid" alt="project image">
+                            <img src="../static/images/project/SQL 1.jpg" class="img-fluid" alt="project image">
                           </div>
                         </div>
 
                         <div class="item">
                           <div class="project-info">
-                            <img src="images/project/SQL 2.jpg" class="img-fluid" alt="project image">
+                            <img src="../static/images/project/SQL 2.jpg" class="img-fluid" alt="project image">
                           </div>
                         </div>
 
                         <div class="item">
                           <div class="project-info">
-                            <img src="images/project/Postman-1.png" class="img-fluid" alt="project image">
+                            <img src="../static/images/project/Postman-1.png" class="img-fluid" alt="project image">
                           </div>
                         </div>
 
                         <div class="item">
                           <div class="project-info">
-                            <img src="images/project/project-image04.png" class="img-fluid" alt="project image">
+                            <img src="../static/images/project/project-image04.png" class="img-fluid" alt="project image">
                           </div>
                         </div>
 
                         <div class="item">
                           <div class="project-info">
-                            <img src="images/project/project-image05.png" class="img-fluid" alt="project image">
+                            <img src="../static/images/project/project-image05.png" class="img-fluid" alt="project image">
                           </div>
                         </div>
                       </div>
 
                   </div>
-                </div>
+            </div>
     </section>
 
     <!-- CONTACT -->
@@ -296,14 +311,14 @@
     </section>
 
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/Headroom.js"></script>
+    <script src="../static/js/jQuery.headroom.js"></script>
+    <script src="../static/js/owl.carousel.min.js"></script>
+    <script src="../static/js/smoothscroll.js"></script>
+    <script src="../static/js/custom.js"></script>
 
   </body>
 </html>
