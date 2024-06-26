@@ -71,22 +71,22 @@ def test_login_to_account(web_browser):
         check.is_true(page.inp_username.is_visible())
         check.is_true(page.inp_password.is_visible())
         check.is_true(page.btn_come_in.is_visible())
-        check.is_true(page.btn_replace_me.is_visible())
 
     with allure.step('Проверка на кликабельность'):
         check.is_true(page.btn_come_in.is_clickable())
-        check.is_true(page.btn_replace_me.is_clickable())
 
     with allure.step('Проверка входа с неверным паролем'):
         page.inp_username.send_keys(login)
         page.inp_password.send_keys(password[1])
+        page.btn_eye.click()
         page.btn_come_in.click()
-        #check.equal(page.msg_error.get_text(),'ОШИБКА: введено неверное имя пользователя или пароль. Забыли пароль?')
+        check.equal(page.msg_error.get_text(),'ОШИБКА: введено неверное имя пользователя или пароль. Забыли пароль?')
 
-    # with allure.step('Проверка входа с верным паролем'):
-    #     page.inp_username.send_keys(login)
-    #     page.inp_password.send_keys(password[0])
-    #     page.btn_come_in.click()
-    #     check.not_equal(page.msg_successful_registration.get_text().find('Из главной страницы аккаунта вы можете'
-    #                                                                      ' посмотреть ваши недавние заказы'), -1)
+    with allure.step('Проверка входа с верным паролем'):
+        page.inp_username.send_keys(login)
+        page.inp_password.send_keys(password[0])
+        page.btn_eye.click()
+        page.btn_come_in.click()
+        check.not_equal(page.msg_successful_registration.get_text().find('Из главной страницы аккаунта вы можете'
+                                                                         ' посмотреть ваши недавние заказы'), -1)
 

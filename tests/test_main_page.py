@@ -114,18 +114,15 @@ def test_feedback(web_browser):
 
 
 
-        result_input = [page.inp_feedback_name.send_keys(test_input[0]),
-                        page.inp_feedback_phone.send_keys(test_input[1]),
-                        page.inp_feedback_email.send_keys(test_input[2]),
-                        page.inp_feedback_question.send_keys(test_input[3])]
+        page.inp_feedback_name.send_keys(test_input[0])
+        page.inp_feedback_phone.send_keys(test_input[1])
+        page.inp_feedback_email.send_keys(test_input[2])
+        page.inp_feedback_question.send_keys(test_input[3])
 
-        for result in result_input:
-            n = 0
-            check.equal(result.get_text(), test_input[n])
-            n +=1
-        # check.equal(page.inp_feedback_phone.get_text(), test_input[1])
-        # check.equal(page.inp_feedback_email.get_text(), test_input[2])
-        # check.equal(page.inp_feedback_question.get_text(), test_input[3])
+        check.equal(page.inp_feedback_name.get_text(), test_input[0])
+        check.equal(page.inp_feedback_phone.get_text(), test_input[1])
+        check.equal(page.inp_feedback_email.get_text(), test_input[2])
+        check.equal(page.inp_feedback_question.get_text(), test_input[3])
 
     with allure.step('Проверка работоспособности кнопки "Отправить"'):
         check.is_true(page.btn_feedback_send.is_visible())

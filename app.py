@@ -23,7 +23,7 @@ def error():
 def run_allure():
     """ Эта функция запускает и отвечает за генерацию отчета allure. """
 
-    cmd = ["./scriptsh/runallure.sh"]
+    cmd = ["powershell", "./scriptsh/runallure.ps1"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,
                           stdin=subprocess.PIPE,
@@ -36,20 +36,7 @@ def run_allure():
 def run_ui():
     """ Эта функция запускает и отвечает за тесты страницы /example. """
 
-    cmd = ["./scriptsh/run_ui.sh"]
-    with subprocess.Popen(cmd, stdout=subprocess.PIPE,
-                          stderr=subprocess.PIPE,
-                          stdin=subprocess.PIPE,
-                          universal_newlines=True) as result:
-        out = result.communicate()
-    return render_template('index.html', text=out, json=out)
-
-
-@app.route("/run_api")
-def run_api():
-    """ Эта функция запускает и отвечает за Api тесты. """
-
-    cmd = ["./scriptsh/run_api.sh"]
+    cmd = ["powershell", "./scriptsh/run_ui.ps1"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,
                           stdin=subprocess.PIPE,

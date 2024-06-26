@@ -1,0 +1,8 @@
+Element not found on the page!
+Error: 'NoneType' object has no attribute 'text'
+Element not found on the page!
+URL:  https://lakikraski.by/my-account/
+Browser logs:
+{'level': 'WARNING', 'message': "https://lakikraski.by/wp-includes/js/jquery/jquery.min.js 1 Listener added for a 'DOMSubtreeModified' mutation event. This event type is deprecated, and will be removed from this browser VERY soon. Usage of this event listener will cause performance issues today, and represents a large risk of imminent site breakage. Consider using MutationObserver instead. See https://chromestatus.com/feature/5083947249172480 for more information.", 'source': 'deprecation', 'timestamp': 1719341641991}
+{'level': 'SEVERE', 'message': 'https://lakikraski.by/my-account/ - Failed to load resource: the server responded with a status of 503 ()', 'source': 'network', 'timestamp': 1719341653720}
+{'level': 'SEVERE', 'message': 'https://lakikraski.by/favicon.ico - Failed to load resource: the server responded with a status of 404 ()', 'source': 'network', 'timestamp': 1719341653753}

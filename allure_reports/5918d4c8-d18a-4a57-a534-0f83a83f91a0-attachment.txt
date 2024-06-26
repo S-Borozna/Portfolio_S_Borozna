@@ -1,0 +1,6 @@
+URL:  https://lakikraski.by/
+Browser logs:
+{'level': 'SEVERE', 'message': 'blob:https://lakikraski.by/22ca3500-0c15-46d4-b73b-32ab112f8e08 0:0 Uncaught ReferenceError: wp is not defined', 'source': 'javascript', 'timestamp': 1719341470355}
+{'level': 'SEVERE', 'message': 'blob:https://lakikraski.by/5beb70c9-740a-46a5-9ae2-9efaf1372809 0:143 Uncaught ReferenceError: wp is not defined', 'source': 'javascript', 'timestamp': 1719341470355}
+{'level': 'SEVERE', 'message': 'blob:https://lakikraski.by/5837db39-fb4e-4f46-b6f2-1b4aceb94a97 0:0 Uncaught ReferenceError: wp is not defined', 'source': 'javascript', 'timestamp': 1719341470355}
+{'level': 'WARNING', 'message': "https://lakikraski.by/wp-includes/js/jquery/jquery.min.js 1 Listener added for a 'DOMSubtreeModified' mutation event. This event type is deprecated, and will be removed from this browser VERY soon. Usage of this event listener will cause performance issues today, and represents a large risk of imminent site breakage. Consider using MutationObserver instead. See https://chromestatus.com/feature/5083947249172480 for more information.", 'source': 'deprecation', 'timestamp': 1719341474980}
